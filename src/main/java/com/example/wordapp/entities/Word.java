@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class word {
+public class Word {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

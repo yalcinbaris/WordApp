@@ -1,6 +1,9 @@
 package com.example.wordapp.core.ai;
-import org.springframework.ai.chat.client.ChatClient;
 
+import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.stereotype.Service;
+
+@Service
 public class ChatGptManager implements AIService{
     private ChatClient chatClient;
 
