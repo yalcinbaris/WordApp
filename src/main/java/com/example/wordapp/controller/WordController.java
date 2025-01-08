@@ -28,6 +28,11 @@ public class WordController {
         this.service.createWord(word);
     }
 
+    @DeleteMapping("/{id}")
+    public void deleteWord(@PathVariable int id){
+        this.service.deleteWord(id);
+    }
+
     @GetMapping("/random")
     public List<Word> getRandomWord(){
         return service.randomWord();

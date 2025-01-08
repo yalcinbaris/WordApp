@@ -29,18 +29,21 @@ public class WordManager implements WordService {
     public void createWord(String word) throws Exception {
         String sentence = aiService.createSentence(word);
         String turkish = translatorService.translate(word);
+        String sentenceturkish = translatorService.translate(sentence);
         Word wordObject = new Word();
         wordObject.setWord(word);
         wordObject.setSentence(sentence);
         wordObject.setTurkish(turkish);
-        wordObject.setSentenceTurkish(translatorService.translate(sentence));
+        wordObject.setSentenceTurkish(sentenceturkish);
         repository.save(wordObject);
     }
+
 
     @Override
     public void updateWord(Word word) {
 
     }
+
     @Override
     public void learnedWord(int id){
         Word word = repository.findById(id).orElseThrow();
@@ -50,6 +53,7 @@ public class WordManager implements WordService {
 
     @Override
     public void deleteWord(int id) {
+        repository.deleteById(id);
 
     }
     public List<Word> randomWord(){
